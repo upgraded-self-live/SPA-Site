@@ -14,10 +14,13 @@ import VerticalCard from '@/components/VerticalCard.vue'
       imagesrc="src/assets/Header-image-1.jpg"
     />
     <div class="full-width blur skin-types">
-      <div class="text-wrapper"></div>
+      <div class="text-wrapper">
+        <span class="fs-50 fw-700">Find Your Skin Type</span>
+        <span class="fs-20">Not sure about your skin type? Take our quiz to find out.</span>
+      </div>
       <div class="grid2x2 skin-types-wrapper"></div>
     </div>
-    <div class="card-container-flex-horziontal">
+    <div class="card-container-flex-horziontal top-200">
       <VerticalCard
         imgsrc="src/assets/Skincare-products-1.jpg"
         heading="Buy What You Need"
@@ -43,6 +46,39 @@ import VerticalCard from '@/components/VerticalCard.vue'
 </template>
 
 <style scoped>
+.top-200 {
+  position: relative;
+  top: 100px;
+}
+.skin-types {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 50px;
+  position: relative;
+  top: 100px;
+}
+.grid2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.text-wrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.fs-20 {
+  font-size: 20px;
+}
+.blur {
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+}
 .quote {
   text-align: center;
   color: white;
@@ -92,5 +128,8 @@ fw-700 {
   align-items: center;
 
   padding: 20px;
+}
+.full-width {
+  width: 100%;
 }
 </style>
