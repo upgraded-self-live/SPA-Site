@@ -1,0 +1,51 @@
+
+:root{
+  --primary-color: white;
+  --secondary-color: #fcb8c3;
+}
+*{
+  font-family: 'Poppins', sans-serif;
+  image-rendering: smooth;
+}
+body{
+  min-height: 100vh;
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+  background: white;
+
+  background-image: radial-gradient(
+    white 70%,
+    #f58598 30%
+  );
+  overflow-x: hidden;
+  background-size: 500%, 500%;
+  animation: backgroundAnimation 30s 100ms alternate infinite;
+}
+#app{
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+body::-webkit-scrollbar{
+  background: transparent;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 5px;
+}
+body::-webkit-scrollbar-thumb{
+  background-color: pink;
+  border-radius: 10px;
+}
+.CTA-button{
+   background-color: rgb(255, 94, 120);
+}
+
+@keyframes backgroundAnimation{
+  from {
+    background-position: 0%, 0%;
+  }
+  to {
+    background-position: 100%, 100%;
+  }
+}
