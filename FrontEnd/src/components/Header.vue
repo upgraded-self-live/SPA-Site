@@ -19,7 +19,7 @@ console.log(Props.imagesrc)
 
 <style scoped>
 .container {
-  width: 100%;
+  width: 99%;
   min-height: 600px;
   position: relative;
   border-bottom-left-radius: 20px;
@@ -34,10 +34,10 @@ console.log(Props.imagesrc)
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px) ;
 
-  padding: 30px ;
+  padding: 100px ;
 }
 .Text-wrapper {
-  min-width: 500px;
+  max-width: 40%;
   height: max-content;
 
   display: flex;
@@ -59,5 +59,7 @@ console.log(Props.imagesrc)
 }
 .header-img{
     border-radius: 50%;
+    width: 40%;
+    height: auto;
 }
 </style>

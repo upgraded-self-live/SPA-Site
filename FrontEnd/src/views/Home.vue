@@ -18,7 +18,9 @@ import VerticalCard from '@/components/VerticalCard.vue'
         <span class="fs-50 fw-700">Find Your Skin Type</span>
         <span class="fs-20">Not sure about your skin type? Take our quiz to find out.</span>
       </div>
-      <div class="grid2x2 skin-types-wrapper"></div>
+      <div class="grid2x2 skin-types-wrapper">
+        
+      </div>
     </div>
     <div class="card-container-flex-horziontal top-200">
       <VerticalCard
@@ -48,7 +50,7 @@ import VerticalCard from '@/components/VerticalCard.vue'
 <style scoped>
 .top-200 {
   position: relative;
-  top: 100px;
+  top: 200px !important;
 }
 .skin-types {
   display: flex;
@@ -114,7 +116,13 @@ fw-700 {
   background: transparent;
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 120px;
+  align-items: center;
+
 }
 .card-container-flex-horziontal {
   position: relative;
