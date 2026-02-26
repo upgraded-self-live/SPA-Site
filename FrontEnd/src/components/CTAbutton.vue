@@ -11,5 +11,6 @@ button {
   border: none;
   padding: 10px;
   cursor: pointer;
+  border-radius: 20px;
 }
 </style>

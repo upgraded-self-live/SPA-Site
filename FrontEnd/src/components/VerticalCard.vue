@@ -29,6 +29,7 @@ const Props = defineProps(['imgsrc', 'heading', 'text'])
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 20px;
+  overflow: hidden;
 }
 .text-wrapper {
   width: 80%;
