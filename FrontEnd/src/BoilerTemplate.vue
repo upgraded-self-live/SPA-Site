@@ -1,5 +1,5 @@
 <!--Copy this boilerplate for easy component building-->
-<script setup ></script>
+<script setup></script>
 
 <template></template>
 

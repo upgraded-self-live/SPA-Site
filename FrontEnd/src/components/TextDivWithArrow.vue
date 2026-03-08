@@ -24,7 +24,7 @@ a {
 }
 .container {
   width: 150px;
-  height: 80px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -32,8 +32,8 @@ a {
   gap: 8px;
 }
 img {
-  width: 90%;
-  height: 50%;
+  width: 150px;
+  height: auto;
   border-radius: 10px;
 }
 .text-container {

@@ -1,17 +1,42 @@
 <!--Copy this boilerplate for easy component building-->
 <script setup>
+import { onMounted, ref } from 'vue'
 const Props = defineProps(['title', 'subtitle', 'img'])
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
+
+function setScrollTrigger(selection, triggerel, object) {
+  try {
+    if (typeof object != 'object') {
+      return 'Object expected @ argument 2'
+    }
+    return gsap.from(selection, {
+      ...object,
+      scrollTrigger: { trigger: triggerel, start: 'top 80%', end: 'bottom 20%' , scrub: true},
+    })
+  } catch (e) {
+    console.error(e)
+    return gsap.from(selection, { ...object });
+  }
+}
+const title = ref(null)
+const sub_title = ref(null)
+onMounted(() => {
+  setScrollTrigger(title.value, title.value, { opacity: 0, y: 50, duration: 1, ease: 'power2.out' })
+  setScrollTrigger(sub_title.value, title.value, { opacity: 0, y: 50, duration: 1, ease: 'power2.out' })
+})
 </script>
 
 <template>
   <div v-if="!Props.img" class="no-image blur">
-    <span class="title">{{ Props.title }}</span>
-    <span class="subtitle">{{ Props.subtitle }}</span>
+    <span ref="title" class="s-title">{{ Props.title }}</span>
+    <span ref="sub_title" class="s-subtitle">{{ Props.subtitle }}</span>
   </div>
   <div v-if="Props.img" class="image blur">
     <div class="text-container">
-      <span class="title">{{ Props.title }}</span>
-      <span class="subtitle">{{ Props.subtitle }}</span>
+      <span ref="title" class="s-title">{{ Props.title }}</span>
+      <span ref="sub_title" class="s-subtitle">{{ Props.subtitle }}</span>
     </div>
     <img :src="Props.img || Props['img']" alt="" />
   </div>
@@ -56,10 +81,10 @@ const Props = defineProps(['title', 'subtitle', 'img'])
   image-rendering: auto;
   border-radius: 20%;
 }
-.title {
+.s-title {
   font-size: 3rem;
 }
-.subtitle {
+.s-subtitle {
   font-size: 1.5rem;
   width: 80%;
   text-align: center;

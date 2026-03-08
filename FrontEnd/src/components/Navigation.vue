@@ -12,11 +12,14 @@ const borderRadius = ref('20px')
       <Logo100 />
       <ul>
         <li class="home"><RouterLink to="/">Home</RouterLink></li>
-        <li class="about"><RouterLink to="/">About Us</RouterLink></li>
+        <li class="about"><RouterLink to="/about">About Us</RouterLink></li>
+        <li class="routine">
+          <RouterLink to="/routines">Routines</RouterLink>
+        </li>
       </ul>
       <div class="button-container-flex-col">
         <RouterLink to="/"><button class="CTA-button">Build your Routine</button></RouterLink>
-        <RouterLink to="/"><button>Have a question?</button></RouterLink>
+        <RouterLink to="/contact"><button>Have a question?</button></RouterLink>
       </div>
     </nav>
   </div>

@@ -8,15 +8,19 @@ import CTAbutton from '@/components/CTAbutton.vue'
 import Section from '@/components/Section.vue'
 import CTA from '@/components/CTA.vue'
 import Dropdown from '@/components/Dropdown.vue'
+import Copyright from '@/components/Copyright.vue'
+import SocialMedias from '@/components/SocialMedias.vue'
+import CookieRequest from '@/components/CookieRequest.vue'
 </script>
 
 <template>
+  <CookieRequest/>
   <div class="content-wrapper">
     <Navigation class="Navigation" />
     <Header
       heading="Get Proven Skincare Routine in 60 Seconds"
       subheading="Built on countless research and reviews from users across the web."
-      imagesrc="src/assets/Header-image-1.jpg"
+      imagesrc="/Header-image-1.jpg"
     />
     <Section
       title="Get a Skincare Routine gauranteed to work for your skin type"
@@ -31,35 +35,40 @@ import Dropdown from '@/components/Dropdown.vue'
       <div class="grid2x2 skin-types-wrapper">
         <TextDivWithArrow
           text="Oily Skin"
-          src="src/assets/Oily-skin.webp"
+          src="/Oily-skin.webp"
           href="https://www.google.com/search?q=what+is+oily+skin"
         />
         <TextDivWithArrow
           text="Dry Skin"
-          src="src/assets/Dry-skin.webp"
+          src="/Dry-Skin.webp"
           href="https://www.google.com/search?q=what+is+dry+skin"
         />
         <TextDivWithArrow
           text="Combination Skin"
-          src="src/assets/Combination-skin.webp"
+          src="/Combination-skin.webp"
           href="https://www.google.com/search?q=what+is+combination+skin"
         />
       </div>
     </div>
+    <Section
+      title="Most Products Don't Work"
+      subtitle="We offer products that give real result and not false promises based on user experience."
+      img="/Skincare-products-don't-work.png"
+    />
     <div class="card-container-flex-horziontal">
       <VerticalCard
-        imgsrc="src/assets/Skincare-products-1.jpg"
+        imgsrc="/Skincare-products-1.jpg"
         heading="Buy What You Need"
         text="Don't overspend on products you don't need."
       />
       <VerticalCard
-        imgsrc="src/assets/Verified-pink.png"
+        imgsrc="/Verified-pink.png"
         heading="Get Products That Work"
         text="Products are selected from valuable research and reviews."
       />
 
       <VerticalCard
-        imgsrc="src/assets/Routinethatworksimage-1.jpg"
+        imgsrc="/Routinethatworksimage-1.jpg"
         heading="Clear & Simple"
         text="No fluff, no nonsense, a clear routine for your skin type."
       />
@@ -73,11 +82,10 @@ import Dropdown from '@/components/Dropdown.vue'
       title="Your Skin is Our Priority"
       subtitle="Our main focus is to ensure you get the best version of your skin. We are committed to providing you with the best skincare routine that suits your skin type and concerns."
     />
-    <CTA />
     <Section
       title="Improve facial attraction"
       subtitle="Skincare is not just about health, it's also about improving your facial attraction. A good skincare routine can enhance your natural beauty and boost your confidence."
-      img="src/assets/alehidalgo-model-429733_1280.jpg"
+      img="/alehidalgo-model-429733_1280.jpg"
     />
 
     <div class="full-width FAQ-container">
@@ -86,10 +94,10 @@ import Dropdown from '@/components/Dropdown.vue'
         <Dropdown
           title="'What do we do if we have normal skin?'"
           dropdownvalue="Having normal skin is very rare but if you have normal skin you do not have to use a skin care routine, but if 
-        you want to look better then we recommend you use a cleanser > toner > retinol > peptides > moisturizer > sunscreen."
+        you want to look better then we recommend you use a cleanser > moisturizer > sunscreen."
         />
         <Dropdown
-          title="'Is our skincare effective?'"
+          title="'Is your skincare effective?'"
           dropdownvalue="Our skincare routine is built on countless research and reviews from users across the web. We are confident that our skincare routine will work for you, but if it doesn't work in 4 months, feel free to contact us."
         />
         <Dropdown
@@ -150,6 +158,7 @@ If irritation persists, discontinue use."
         />
       </div>
     </div>
+    <CTA />
     <footer>
       <svg
         data-name="Layer 1"
@@ -179,34 +188,67 @@ If irritation persists, discontinue use."
           fill-opacity="1"
         ></path>
       </svg>
-      <div class="footer-content"></div>
+      <ul class="footer-content">
+        <li><RouterLink to="/about">About Us</RouterLink></li>
+
+        <li><RouterLink to="/contact">Contact Us</RouterLink></li>
+
+        <li><RouterLink to="/newsletter">Join Our Newsletter</RouterLink></li>
+      </ul>
+      <Copyright class="copyright" />
+      <SocialMedias class="socials" />
     </footer>
   </div>
 </template>
 
 <style scoped>
+.socials {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.copyright {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+}
 footer {
   width: 100%;
-  min-height: 300px;
+  height: 500px;
   background: transparent;
   position: relative;
-  margin-top: 300px;
+  margin-top: 200px;
+  padding: 0;
+  margin-bottom: 0;
+  overflow: hidden;
 }
 footer > svg {
   width: 100%;
   position: absolute;
-  bottom: 99%;
+  bottom: 230px;
   left: 0;
 }
 .footer-content {
   position: absolute;
   bottom: 0;
   left: 0;
+  margin: 0 !important;
   width: 100%;
-  height: 300px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  height: 230px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   background-color: pink;
+}
+.footer-content > li {
+  list-style: none;
+}
+.footer-content > li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
 }
 .content-wrapper {
   background: transparent;
@@ -244,6 +286,9 @@ footer > svg {
   padding: 50px;
   position: relative;
   top: 0;
+}
+.skin-types-wrapper{
+  padding: 50px;
 }
 .grid2x2 {
   display: grid;

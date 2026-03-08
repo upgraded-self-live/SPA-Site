@@ -7,3 +7,7 @@ Upgraded.live is an affiliate marketting -website meant to hold all links relate
 - I will create the heading with consist of a blurry background image with moderate animations.
 - I will use a CTA "build your routine" and ask questions on their skin type to recommend
 - Rest will come later.
+- I will add ads at the bottom of the question page.
+- I will save the email in a database and send an email
+- Formulate questions and fetch the required affiliate
+- I will save affiliate according type and budget

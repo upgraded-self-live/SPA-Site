@@ -2,7 +2,7 @@
 <script setup></script>
 
 <template>
-  <RouterLink to="/"><img src="/src/assets/UGRD.LIVE-logo.png" alt="Logo" /></RouterLink>
+  <RouterLink to="/"><img src="/UGRD.LIVE-logo.png" alt="Logo" /></RouterLink>
 </template>
 
 <style scoped></style>

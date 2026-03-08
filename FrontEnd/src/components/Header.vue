@@ -1,9 +1,23 @@
 <!--Copy this boilerplate for easy component building-->
 <script setup>
 import { defineProps, onMounted } from 'vue'
+import gsap from 'gsap'
 import Img500 from './Img500.vue'
 const Props = defineProps(['heading', 'subheading', 'imagesrc'])
-console.log(Props.imagesrc)
+function setFromAnim(selector, object) {
+  if (typeof selector != 'string') {
+    return 'String expected @ argument 0'
+  }
+  if (typeof object != 'object') {
+    return 'Object expected @ argument 1'
+  }
+  return gsap.from(selector, object);
+}
+
+onMounted(() => {
+  setFromAnim('.title', { opacity: 0, y: 50, duration: 1, ease: 'power2.out' })
+  setFromAnim('.sub-title', { opacity: 0, y: 50, duration: 1, ease: 'power2.out' })
+})
 </script>
 
 <template>
@@ -12,8 +26,7 @@ console.log(Props.imagesrc)
       <span class="title">{{ Props.heading }}</span>
       <span class="sub-title">{{ Props.subheading }}</span>
     </div>
-    <Img500 :propsrc="Props.imagesrc" class="header-img"/>
-    
+    <Img500 :propsrc="Props.imagesrc" class="header-img" />
   </div>
 </template>
 
@@ -27,14 +40,13 @@ console.log(Props.imagesrc)
 
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 
- 
   backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(50px) ;
+  -webkit-backdrop-filter: blur(50px);
 
-  padding: 100px ;
+  padding: 100px;
 }
 .Text-wrapper {
   max-width: 40%;
@@ -57,9 +69,9 @@ console.log(Props.imagesrc)
   color: hsla(0, 0%, 3%, 0.9);
   margin-left: 10px;
 }
-.header-img{
-    border-radius: 50%;
-    width: 40%;
-    height: auto;
+.header-img {
+  border-radius: 30px;
+  width: 40%;
+  height: auto;
 }
 </style>

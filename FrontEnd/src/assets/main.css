@@ -6,7 +6,7 @@
 }
 * {
   font-family: 'Poppins', sans-serif;
-  image-rendering: smooth;
+  image-rendering: auto;
 }
 body {
   min-height: 100vh;
@@ -14,7 +14,7 @@ body {
   margin: 0;
   padding: 0;
 
-  background-image: radial-gradient(#fcfaf9, #f58598, #e5d9d0,#f58598, #decdc8);
+  background-image: radial-gradient(#fcfaf9, #f58598, #e5d9d0, #f58598, #decdc8);
   overflow-x: hidden;
   background-size: 500%, 500%;
   animation: backgroundAnimation 30s 100ms alternate infinite;
@@ -25,15 +25,10 @@ body {
   position: relative;
 }
 body::-webkit-scrollbar {
-  background: transparent;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 5px;
+  display: none;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: pink;
-  border-radius: 10px;
-}
+ display: none;}
 .CTA-button {
   background-color: rgb(255, 94, 120);
 }
