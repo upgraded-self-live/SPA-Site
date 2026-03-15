@@ -1,43 +1,55 @@
 :root {
-  --primary-color: #fcfaf9;
-  --secondary-color: #fcb8c3;
-  --tertiary-color: #e5d9d0;
-  --quartiary-color: #decdc8;
+  --cream: #faf7f2;
+  --warm-white: #fdf9f4;
+  --terracotta: #c9674a;
+  --terracotta-light: #e8896e;
+  --terracotta-dark: #a8503a;
+  --blush: #f2d5c8;
+  --blush-mid: #e8c4b0;
+  --sage: #8a9e8c;
+  --charcoal: #1e1a18;
+  --mid-grey: #6b6360;
+  --light-grey: #d4cfc9;
 }
-* {
-  font-family: 'Poppins', sans-serif;
-  image-rendering: auto;
-}
-body {
-  min-height: 100vh;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
-  background-image: radial-gradient(#fcfaf9, #f58598, #e5d9d0, #f58598, #decdc8);
-  overflow-x: hidden;
-  background-size: 500%, 500%;
-  animation: backgroundAnimation 30s 100ms alternate infinite;
+  transition: all 600ms 100ms ease-in-out;
 }
+body,
 #app {
+  background-color: var(--cream);
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--charcoal);
   min-height: 100vh;
-  width: 100%;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
 }
-body::-webkit-scrollbar {
-  display: none;
+h1{
+  font-size: 4rem;
 }
-body::-webkit-scrollbar-thumb {
- display: none;}
-.CTA-button {
-  background-color: rgb(255, 94, 120);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+  font-family: 'Playfair Display', sans-serif;
 }
-
-@keyframes backgroundAnimation {
-  from {
-    background-position: 0%, 0%;
-  }
-  to {
-    background-position: 100%, 100%;
-  }
+CTA-text {
+  color: var(--terracotta-dark);
+}
+.secondary-text {
+  color: var(--mid-grey);
+}
+.tertiary-text {
+  color: var(--sage);
 }

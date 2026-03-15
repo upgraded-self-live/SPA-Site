@@ -2,15 +2,26 @@
 <script setup></script>
 
 <template>
-  <RouterLink to="/"><button class="CTA-button">Build your Routine</button></RouterLink>
+  <RouterLink to="/">
+    <button class="call-to-action-button">BUILD YOUR ROUTINE</button>
+  </RouterLink>
 </template>
 
 <style scoped>
 button {
-  border-radius: v-bind(borderRadius);
-  border: none;
-  padding: 10px;
+  font-family: 'DM Sans', sans-serif;
+  min-width: 100px;
+  padding: 10px 10px;
+  text-align: center;
   cursor: pointer;
-  border-radius: 20px;
+  border: none;
+}
+.call-to-action-button {
+  background-color: var(--terracotta);
+  color: var(--warm-white);
+}
+.call-to-action-button:hover {
+  background-color: var(--terracotta-dark);
+  transform: translateY(-5px);
 }
 </style>

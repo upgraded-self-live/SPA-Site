@@ -1,110 +1,81 @@
 <!--Copy this boilerplate for easy component building-->
 <script setup>
-import { ref } from 'vue'
-import Logo100 from './Logo100.vue'
-
-const borderRadius = ref('20px')
+import FlexSpaceEvenlyContainer from './FlexSpaceEvenlyContainer.vue'
+import CTAButton from './CTAButton.vue';
 </script>
 
 <template>
-  <div class="navigation-holder">
-    <nav>
-      <Logo100 />
-      <ul>
-        <li class="home"><RouterLink to="/">Home</RouterLink></li>
-        <li class="about"><RouterLink to="/about">About Us</RouterLink></li>
-        <li class="routine">
-          <RouterLink to="/routines">Routines</RouterLink>
-        </li>
-      </ul>
-      <div class="button-container-flex-col">
-        <RouterLink to="/"><button class="CTA-button">Build your Routine</button></RouterLink>
-        <RouterLink to="/contact"><button>Have a question?</button></RouterLink>
-      </div>
-    </nav>
-  </div>
+  <nav>
+    <span class="brand">UGRD.LIVE</span>
+    <ul class="Link-Container width-auto">
+      <li class="link-wrapper"><RouterLink to="/">HOME</RouterLink></li>
+      <li class="link-wrapper"><RouterLink to="/">ABOUT</RouterLink></li>
+      <li class="link-wrapper"><RouterLink to="/">LEARN MORE</RouterLink></li>
+    </ul>
+    <FlexSpaceEvenlyContainer gap="15px" direction="row">
+      <RouterLink to="/">
+        <button class="contact-button">HAVE A QUESTION?</button>
+      </RouterLink>
+      <CTAButton/>
+    </FlexSpaceEvenlyContainer>
+  </nav>
 </template>
 
 <style scoped>
-* {
-  transition: all 600ms 1ms ease-in-out;
-  box-sizing: border-box;
-}
-.navigation-holder {
-  background: transparent;
+nav {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 10px;
-  width: 100vw;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  width: 100%;
+  border-bottom: 1px solid var(--sage);
   height: 100px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
-  z-index: 10000091;
-}
-nav {
-  border-radius: v-bind(borderRadius);
-  /*box-shadow: 0 0 10px 0 rgb(68, 67, 67);*/
-  background-color: white;
-  min-width: 90%;
-  min-height: 60px;
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  padding: 10px;
+  padding: 0 20px;
+  z-index: 99999999999;
 }
-nav > ul {
-  height: 100%;
-  width: 32%;
-  padding: 0;
-  margin: 0;
+.brand {
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 1.6rem;
+}
+.width-auto {
+  width: auto;
+}
+.Link-Container {
+  height: 70px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  gap: 20px;
   align-items: center;
 }
-li {
+.Link-Container > li {
   list-style: none;
-  min-width: 100px;
-  height: 100%;
-  border-radius: v-bind(borderRadius);
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-li:hover {
-  transform: scale(1.0009);
-  background-color: hsla(0, 9%, 94%, 0.7);
-  box-shadow: 0 0 5px 0 rgb(129, 129, 129);
 }
 a {
+  color: var(--mid-grey);
   text-decoration: none;
-  color: black;
 }
-.button-container-flex-col {
-  min-width: 50px;
-  height: 100%;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
+a:hover {
+  color: var(--terracotta-light);
 }
 button {
-  border-radius: v-bind(borderRadius);
-  border: none;
-  padding: 10px;
+  font-family: 'DM Sans', sans-serif;
+  min-width: 100px;
+  padding: 10px 10px;
+  text-align: center;
   cursor: pointer;
 }
-button:hover {
-  background-color: pink;
+.contact-button {
+  color: var(--mid-grey);
+  border: 1px solid var(--mid-grey);
+  background: transparent;
 }
-button:active {
-  background-color: rgb(252, 163, 178);
-  transform: scale(1.009);
+.contact-button:hover {
+  border: 1px solid var(--terracotta);
+  color: var(--terracotta);
 }
 </style>

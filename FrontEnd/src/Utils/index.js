@@ -1,6 +1,6 @@
 export class cookieUtils {
-  setItemInCookie(name, value, duration = 86400000) {
-    document.cookie = `${name}=${value}; path=/; max-age=${duration}`
+  setItemInCookie(name, value, duration = 60000) {
+    document.cookie = `${name}=${value}; path=/; max-age=${duration *60000}`//a minute in millisecond is 60,000 so we will multiple the duration by the minute eg. 60*60,000 = 1 hour
     return true
   }
   getFromCookie(name) {
@@ -42,3 +42,10 @@ export class storageUtils {
     return window.sessionStorage.getItem(name)
   }
 }
+export function onUpdate(callback, iteration_rate) {
+  try {
+    const updateInterval = setInterval(callback, iteration_rate || 500)
+  } catch (e) {
+    throw new Error('An error occured @ onUpdated function' + e)
+  }
+};
