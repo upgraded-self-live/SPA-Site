@@ -7,11 +7,13 @@ import Navigation from '@/components/Navigation.vue'
 import STextLine from '@/components/STextLine.vue'
 import CTAMain from '@/components/CTA-Main.vue'
 import Proof from '@/components/Proof.vue'
+import Copyright from '@/components/Copyright.vue'
+import Socials from '@/components/Socials.vue'
 const num_of_questions = ref(3) // This reactive component is used for the description in the header under the header text with class ".info-text".
 onMounted(() => {
   const selected_elements = document.querySelectorAll('.show-up') //Loop through each element with the show-up class
   selected_elements.forEach((i) => {
-    gsap.from(i, { opacity: 0, y: 20, duration: 0.7, delay: 0, ease: 'power2.out' })
+    gsap.from(i, { opacity: 0, y: 20, duration: 1, delay: 0, ease: 'power2.out' })
     //add the gsap.from animation for the intro animation
   })
 })
@@ -65,11 +67,84 @@ onMounted(() => {
   </header>
   <main>
     <Proof />
+    <div id="steps-container">
+      <div>
+        <STextLine text="THE PROCESS" class="show-up" />
+        <span class="header-text-container">
+          <h1 class="show-up">Build Your Routine In</h1>
+          <h1 class="force-sameline ws-07 show-up">
+            Your
+            <span class="color-terracotta h1 show-up">3 Steps.</span>
+          </h1>
+        </span>
+      </div>
+      <div id="steps-wrapper" class="show-up">
+        <div class="steps">
+          <div class="steps-header-container">
+            <h2 class="fs-4rem">❓<!--Image/emoji to represent the card information--></h2>
+            <h2 class="color-blush fs-6rem">01<!--Step number--></h2>
+          </div>
+          <div class="steps-content">
+            <h2>Diagnose</h2>
+            <p class="card-description">
+              Answer a few targeted questions about your skin type, concerns, and daily habits. No
+              jargon, just honest answers.
+            </p>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="steps-header-container">
+            <h1 class="fs-4rem">🧪<!--Image/emoji to represent the card information--></h1>
+            <h1 class="color-blush fs-6rem">02<!--Step number--></h1>
+          </div>
+          <div class="steps-content">
+            <h2>Match</h2>
+            <p class="card-description">
+              We match your profile against our curated database of ingredients and formulas, ranked
+              by efficacy and compatibility.
+            </p>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="steps-header-container">
+            <h1 class="fs-4rem">✨<!--Image/emoji to represent the card information--></h1>
+            <h1 class="color-blush fs-6rem">03<!--Step number--></h1>
+          </div>
+          <div class="steps-content">
+            <h2>Routine</h2>
+            <p class="card-description">
+              Receive a step-by-step AM/PM routine with product recommendations and guidance on how
+              and when to use each one.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
-  <footer></footer>
+  <footer>
+    <div class="footer-wrapper">
+      <!--Copyright component-->
+      <Copyright fontSize="0.8rem" />
+      <!--Links to privacy Policy, NewsLetter, About and Support-->
+      <ul id="footer-links-container">
+        <li><RouterLink to="/cookie-policy">Cookie Policy</RouterLink></li>
+        <li><RouterLink to="/">Email Reminder</RouterLink></li>
+        <li><RouterLink to="/">About</RouterLink></li>
+        <li><RouterLink to="/">Support</RouterLink></li>
+      </ul>
+      <!--Social links -->
+      <Socials />
+    </div>
+  </footer>
 </template>
 
 <style scoped>
+.fs-4rem {
+  font-size: 4rem !important;
+}
+.fs-6rem {
+  font-size: 6rem !important;
+}
 header {
   height: 120vh;
   width: 100%;
@@ -162,7 +237,7 @@ footer {
   flex-direction: row;
   flex-wrap: nowrap;
 }
-.h1 {
+ .h1{
   font-size: 4rem; /* Made this h1 for the inline span*/
 }
 .ws-07 {
@@ -186,18 +261,99 @@ footer {
   z-index: 1;
 }
 .fs-2rem {
-  font-size: 2rem;
+  font-size: 2rem !important;
 }
 #Main-CTA {
   min-height: 60%;
   width: 100%;
   border-radius: 5px;
   padding: 20px;
-  background-color: var(--warm-white);
-  box-shadow: 0px 5px 5px var(--mid-grey);
+  background-color: white;
   gap: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+#steps-container {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 100px;
+  padding: 30px;
+  margin-top: 125px;
+}
+#steps-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.color-blush {
+  color: var(--blush);
+}
+.steps {
+  background-color: var(--cream);
+  width: 20%;
+  height: 400px;
+  border: 1px solid var(--charcoal);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.steps:hover {
+  background-color: var(--warm-white) !important;
+  transform: scale(1.008);
+}
+.steps-header-container {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.steps-content {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 15px;
+}
+.footer-wrapper {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+#footer-links-container {
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  padding: 0 10px; /*y x */
+}
+#footer-links-container li {
+  font-size: 0.8rem;
+  color: var(--light-grey);
+  list-style: none;
+}
+#footer-links-container li:hover {
+  transform: scale(1.009);
+}
+#footer-links-container li > a:hover {
+  color: var(--terracotta);
+}
+#footer-links-container a {
+  text-decoration: none;
+  color: var(--light-grey);
 }
 </style>

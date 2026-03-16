@@ -22,6 +22,6 @@ const constraints = ref({
   padding: 20px;
   max-width: v-bind(constraints.width);
   max-height: v-bind(constraints.height);
-  box-shadow: 10px 0 20px var(--sage);
+  box-shadow: 10px 0 20px var(--mid-grey);
 }
 </style>

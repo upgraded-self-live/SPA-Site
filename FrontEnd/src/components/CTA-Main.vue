@@ -1,6 +1,6 @@
 <!--Copy this boilerplate for easy component building-->
 <script setup>
-import { cookieUtils, onUpdate } from '@/Utils'
+import { cookieUtils } from '@/Utils'
 const c = new cookieUtils()
 
 function updateCurrentChoiceAndStyles(event /* this grabs the element that invoked the event */) {
@@ -22,7 +22,15 @@ function grabCurrentChoice(el) {
   try {
     if (el.classList.contains('active-choice')) {
       const attrValue = el.getAttribute('data-choice')
-      const s = c.setItemInCookie('skin-type', attrValue, 60)
+      const s = c.setItemInCookie('skin-type', attrValue, 60);
+      const ugrd_session = {
+        quizProgress: '1',
+        data: {
+          skinType: attrValue
+        }
+      }
+      const savable_version = JSON.stringify(ugrd_session)
+      c.setItemInCookie('ugrd_session', savable_version, 60) // this cookie will be used to track the quiz progress and make sure that the user is on the right question when they go back to the quiz after leaving it for a while
     }
   } catch (e) {
     throw new error(e)
@@ -199,5 +207,6 @@ li {
 .active-choice:hover {
   background-color: var(--terracotta) !important;
   color: var(--warm-white) !important;
+  border: 1px solid var(--terracotta);
 }
 </style>

@@ -10,7 +10,6 @@ import CTAButton from './CTAButton.vue';
     <ul class="Link-Container width-auto">
       <li class="link-wrapper"><RouterLink to="/">HOME</RouterLink></li>
       <li class="link-wrapper"><RouterLink to="/">ABOUT</RouterLink></li>
-      <li class="link-wrapper"><RouterLink to="/">LEARN MORE</RouterLink></li>
     </ul>
     <FlexSpaceEvenlyContainer gap="15px" direction="row">
       <RouterLink to="/">

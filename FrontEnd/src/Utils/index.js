@@ -1,6 +1,7 @@
 export class cookieUtils {
   setItemInCookie(name, value, duration = 60000) {
-    document.cookie = `${name}=${value}; path=/; max-age=${duration *60000}`//a minute in millisecond is 60,000 so we will multiple the duration by the minute eg. 60*60,000 = 1 hour
+    const encoddedValue = encodeUriComponent(value)
+    document.cookie = `${name}=${encoddedValue}; path=/; max-age=${duration * 60000}` //a minute in millisecond is 60,000 so we will multiple the duration by the minute eg. 60*60,000 = 1 hour
     return true
   }
   getFromCookie(name) {
@@ -8,7 +9,7 @@ export class cookieUtils {
     for (let cookie of cookies) {
       const [cookieName, cookieValue] = cookie.trim().split('=')
       if (cookieName === name) {
-        return cookieValue
+        return decodeUriComponent(cookieValue) //remove all automatic query types ":" = "$" or smth else idk; if there is any
       }
     }
     return null
@@ -48,4 +49,4 @@ export function onUpdate(callback, iteration_rate) {
   } catch (e) {
     throw new Error('An error occured @ onUpdated function' + e)
   }
-};
+}
