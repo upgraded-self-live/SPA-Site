@@ -1,12 +1,22 @@
 <!--Copy this boilerplate for easy component building-->
 <script setup>
 import { ref } from 'vue'
+import { onUpdate } from '@/Utils'
 const terracotta = ref('#c9674a')
 const props = defineProps(['text'])
+//remove text if its a mobile screen.
+const isMobile = ref(false)
+onUpdate(() => {
+  if (window.innerWidth <= 820) {
+    isMobile.value = true
+  } else {
+    isMobile.value = false
+  }
+}, 500)
 </script>
 
 <template>
-  <span class="line-text">
+  <span class="line-text" v-if="!isMobile">
     <svg height="10" width="40" viewBox="0 0 40 10" :style="{ color: terracotta }">
       <line x1="0" y1="5" x2="40" y2="5" stroke="currentColor" stroke-width="1" />
     </svg>

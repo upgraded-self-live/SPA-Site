@@ -26,12 +26,12 @@ onMounted(() => {
       <STextLine text="PERSONALIZED ROUTINE" class="show-up" />
       <div class="Main-text-container">
         <span class="header-text-container">
-          <h1 class="show-up">Your Skin,</h1>
-          <h1 class="force-sameline ws-07 show-up">
+          <span class="show-up h1">Your Skin,</span>
+          <span class="force-sameline ws-07 show-up h1">
             Your
-            <span class="color-terracotta h1 show-up">Ritual.</span
+            <span class="color-terracotta show-up">Ritual.</span
             ><!--I made sure that the ritual stands out using color-terracotta -->
-          </h1>
+          </span>
         </span>
         <span class="info-text show-up">
           Answer {{ num_of_questions }} questions and we will build you a personalized skincare
@@ -43,7 +43,7 @@ onMounted(() => {
     <section class="right-section">
       <!--This will have gradient background with absolute positioned cards-->
       <div class="gradient-terracottaX2-light">
-        <Cards class="card morning-card show-up" maxWidth="300px" maxHeight="300px"
+        <Cards class="card morning-card show-up" minWidth="150px" minHeight="150px"
           ><!--Morning Routine Card-->
           <span class="time-meridiem">AM</span>
           <div class="card-text-container">
@@ -53,7 +53,7 @@ onMounted(() => {
           </div>
         </Cards>
 
-        <Cards class="card night-card show-up" maxWidth="300px" maxHeight="300px"
+        <Cards class="card night-card show-up" minWidth="150px" minHeight="150px"
           ><!--Evening Routine Card-->
           <span class="time-meridiem">PM</span>
           <div class="card-text-container">
@@ -71,11 +71,11 @@ onMounted(() => {
       <div>
         <STextLine text="THE PROCESS" class="show-up" />
         <span class="header-text-container">
-          <h1 class="show-up">Build Your Routine In</h1>
-          <h1 class="force-sameline ws-07 show-up">
+          <span class="show-up h1">Build Your Routine In</span>
+          <span class="force-sameline ws-07 show-up h1">
             Your
             <span class="color-terracotta h1 show-up">3 Steps.</span>
-          </h1>
+          </span>
         </span>
       </div>
       <div id="steps-wrapper" class="show-up">
@@ -129,8 +129,8 @@ onMounted(() => {
       <ul id="footer-links-container">
         <li><RouterLink to="/cookie-policy">Cookie Policy</RouterLink></li>
         <li><RouterLink to="/">Email Reminder</RouterLink></li>
-        <li><RouterLink to="/">About</RouterLink></li>
-        <li><RouterLink to="/">Support</RouterLink></li>
+        <li><RouterLink to="/about">About</RouterLink></li>
+        <li><RouterLink to="/support">Support</RouterLink></li>
       </ul>
       <!--Social links -->
       <Socials />
@@ -153,6 +153,7 @@ header {
   position: relative;
   padding: 140px 0 0 0;
   overflow: hidden;
+  flex-shrink: 3;
 }
 main {
   width: 100%;
@@ -167,9 +168,10 @@ footer {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
-  gap: 20px;
+  flex-shrink: 1;
+  overflow-y: auto;
+  gap: 40px;
   padding: 10px 30px;
 }
 .right-section {
@@ -217,8 +219,9 @@ footer {
 }
 .Main-text-container {
   width: 100%;
-  height: 40%;
+  height: auto;
   display: flex;
+  flex-shrink: 3;
   flex-direction: column;
   gap: 10px;
 }
@@ -226,6 +229,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  flex-shrink: 3;
   gap: 10px;
 }
 .color-terracotta {
@@ -237,8 +241,10 @@ footer {
   flex-direction: row;
   flex-wrap: nowrap;
 }
- .h1{
+.h1 {
   font-size: 4rem; /* Made this h1 for the inline span*/
+  font-family: 'Playfair Display', sans-serif;
+  font-weight: 700;
 }
 .ws-07 {
   word-spacing: 0.7rem;
@@ -264,13 +270,14 @@ footer {
   font-size: 2rem !important;
 }
 #Main-CTA {
-  min-height: 60%;
+  min-height: auto;
   width: 100%;
   border-radius: 5px;
   padding: 20px;
   background-color: white;
   gap: 10px;
   display: flex;
+  flex-shrink: 3;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -296,7 +303,7 @@ footer {
 }
 .steps {
   background-color: var(--cream);
-  width: 20%;
+  min-width: 20%;
   height: 400px;
   border: 1px solid var(--charcoal);
   padding: 30px;
@@ -355,5 +362,76 @@ footer {
 #footer-links-container a {
   text-decoration: none;
   color: var(--light-grey);
+}
+@media (max-width: 1024px) {
+  header {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 70px 0 0 0;
+    flex-shrink: 3;
+  }
+  .left-section {
+    width: 100%;
+    min-height: 1000px;
+    display: flex;
+    flex-shrink: 3;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .header-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 3;
+    gap: 10px;
+  }
+  .Main-text-container {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-shrink: 3;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  #steps-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .steps {
+    background-color: var(--cream);
+    width: 100%;
+    height: 400px;
+    border: 1px solid var(--charcoal);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .footer-wrapper {
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #footer-links-container {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 0 10px; /*y x */
+  }
+  .right-section {
+    display: none;
+  }
 }
 </style>

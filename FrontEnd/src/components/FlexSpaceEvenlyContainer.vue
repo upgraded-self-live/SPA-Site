@@ -6,7 +6,7 @@ const d = ref({})
 const assign = (parent, obj) => {
   if (typeof obj === 'object') return Object.assign(parent, obj)
 }
-if (props.direction != 'row' && props.direction != 'column') {
+if (props.direction != 'column') {
   assign(d.value, { direction: 'row' })
 } else {
   assign(d.value, { direction: props.direction })

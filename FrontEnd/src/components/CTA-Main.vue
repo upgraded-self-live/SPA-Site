@@ -22,18 +22,17 @@ function grabCurrentChoice(el) {
   try {
     if (el.classList.contains('active-choice')) {
       const attrValue = el.getAttribute('data-choice')
-      const s = c.setItemInCookie('skin-type', attrValue, 60);
       const ugrd_session = {
         quizProgress: '1',
         data: {
-          skinType: attrValue
-        }
+          skinType: attrValue,
+        },
       }
       const savable_version = JSON.stringify(ugrd_session)
       c.setItemInCookie('ugrd_session', savable_version, 60) // this cookie will be used to track the quiz progress and make sure that the user is on the right question when they go back to the quiz after leaving it for a while
     }
   } catch (e) {
-    throw new error(e)
+    throw new Error(e)
   }
 }
 </script>
@@ -90,6 +89,7 @@ function grabCurrentChoice(el) {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  flex-shrink: 3;
 }
 .call-to-action-button {
   font-family: 'DM Sans', sans-serif;
@@ -123,7 +123,7 @@ ul {
   gap: 10px;
 }
 #header {
-  min-height: 10%;
+  height: auto;
   width: 100%;
   padding: 0 10px;
   display: flex;
@@ -146,22 +146,24 @@ li {
   background-color: var(--terracotta);
 }
 #content {
-  height: 80%; /* footer will be 15% in height*/
+  height: auto; /* footer will be 15% in height*/
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-shrink: 2;
   justify-content: space-between;
   flex-shrink: 1;
   gap: 20px;
   padding: 0 10px;
 } /*Increased gap to fit button properly*/
 .footer {
-  height: 5%;
+  height: auto;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 1;
 }
 .grid2x2 {
   width: 100%;

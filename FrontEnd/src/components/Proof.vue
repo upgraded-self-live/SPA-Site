@@ -44,6 +44,9 @@ import NoAccount from '@/components/Icons/grey-no-account-icon.png'
 </template>
 
 <style scoped>
+* {
+  flex-shrink: 1;
+}
 .container {
   width: 100%;
   height: 120px;
@@ -52,11 +55,13 @@ import NoAccount from '@/components/Icons/grey-no-account-icon.png'
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  flex-shrink: 2;
 }
 .flex-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-shrink: 1;
   padding: 0 0 10px 10px;
   gap: 10px;
 }

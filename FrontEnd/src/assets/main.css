@@ -2,14 +2,16 @@
   --cream: #faf7f2;
   --warm-white: #fdf9f4;
   --terracotta: #c9674a;
-  --terracotta-light: #e8896e;
+  --terracotta-light: #f38d71;
   --terracotta-dark: #a8503a;
+  --terracotta-transparent: hsla(13, 84%, 70%, 0.3);
   --blush: #f2d5c8;
   --blush-mid: #e8c4b0;
   --sage: #8a9e8c;
   --charcoal: #1e1a18;
   --mid-grey: #6b6360;
   --light-grey: #d4cfc9;
+  --white: white;
 }
 *,
 *::before,
@@ -17,20 +19,33 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: all 600ms 10ms ease-in-out;
+  transition: all 300ms 10ms ease-in-out;
+  image-rendering: auto;
 }
-body,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 300ms 10ms ease-in-out;
+  image-rendering: auto;
+  height: auto;
+  width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 #app {
   background-color: var(--cream);
-  overflow-x: hidden;
-  overflow-y: auto;
   font-family: 'DM Sans', sans-serif;
   color: var(--charcoal);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 10px;
+  flex-shrink: 1;
+  gap: 120px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 h1 {
   font-size: 4rem;
@@ -44,6 +59,42 @@ h6,
 h7 {
   font-family: 'Playfair Display', sans-serif;
 }
+.h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  font-family: 'Playfair Display', sans-serif;
+}
+.h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', sans-serif;
+}
+.h3 {
+  font-size: 3rem;
+  font-weight: 650;
+  font-family: 'Playfair Display', sans-serif;
+}
+.h4 {
+  font-size: 2.5rem;
+  font-weight: 650;
+  font-family: 'Playfair Display', sans-serif;
+}
+.h5 {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Playfair Display', sans-serif;
+}
+.h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Playfair Display', sans-serif;
+}
+.c-terracotta {
+  color: var(--terracotta);
+}
+.italic {
+  font-style: italic;
+}
 CTA-text {
   color: var(--terracotta-dark);
 }
@@ -52,4 +103,13 @@ CTA-text {
 }
 .tertiary-text {
   color: var(--sage);
+}
+.p-top-120 {
+  padding-top: 120px !important;
+}
+.flex-start-al {
+  align-items: flex-start !important;
+}
+.flex-start-just {
+  justify-content: flex-start !important;
 }

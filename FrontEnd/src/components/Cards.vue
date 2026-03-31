@@ -2,10 +2,10 @@
 <script setup>
 //Card container
 import { ref } from 'vue'
-const props = defineProps(['maxWidth', 'maxHeight'])
+const props = defineProps(['minWidth', 'minHeight'])
 const constraints = ref({
-  width: props.maxWidth || '150px',
-  height: props.maxHeight || '150px',
+  width: props.minWidth || '150px',
+  height: props.minHeight || '150px',
 })
 </script>
 
@@ -20,8 +20,8 @@ const constraints = ref({
   background-color: var(--warm-white);
   border-radius: 20px;
   padding: 20px;
-  max-width: v-bind(constraints.width);
-  max-height: v-bind(constraints.height);
+  min-width: v-bind(constraints.width);
+  min-height: v-bind(constraints.height);
   box-shadow: 10px 0 20px var(--mid-grey);
 }
 </style>
