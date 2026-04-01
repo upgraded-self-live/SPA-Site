@@ -9,7 +9,7 @@ import CTAMain from '@/components/CTA-Main.vue'
 import Proof from '@/components/Proof.vue'
 import Copyright from '@/components/Copyright.vue'
 import Socials from '@/components/Socials.vue'
-const num_of_questions = ref(3) // This reactive component is used for the description in the header under the header text with class ".info-text".
+const num_of_questions = ref(6) // This reactive component is used for the description in the header under the header text with class ".info-text".
 onMounted(() => {
   const selected_elements = document.querySelectorAll('.show-up') //Loop through each element with the show-up class
   selected_elements.forEach((i) => {

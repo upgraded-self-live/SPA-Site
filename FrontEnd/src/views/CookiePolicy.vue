@@ -5,7 +5,7 @@ import STextLine from '@/components/STextLine.vue'
 import Copyright from '@/components/Copyright.vue'
 import { ref } from 'vue'
 import Notice from '@/components/Notice.vue'
-const websiteName = ref('upgradedself.live')
+const websiteName = ref('ugrd.live')
 </script>
 
 <template>
@@ -83,7 +83,7 @@ const websiteName = ref('upgradedself.live')
         <STextLine text="SECTION 03" class="show-up" id="section-03" />
         <span class="h1"
           >Types Of <span class="color-terracotta h1 show-up">Cookies</span>
-          <span class="h1">We Use</span></span
+         We Use</span
         >
       </div>
       <div class="section-content">
@@ -157,6 +157,7 @@ const websiteName = ref('upgradedself.live')
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  flex-shrink: 1;
   gap: 25px;
 }
 section {
@@ -167,10 +168,11 @@ section {
   justify-content: space-evenly;
   gap: 40px;
   margin-top: 100px;
+  flex-shrink: 1;
 }
 .section-header {
   width: 100%;
-  height: 70px;
+  min-height: 70px;
 }
 .content {
   width: 70%;
@@ -317,5 +319,28 @@ button {
 .secondary-button:hover {
   background-color: var(--mid-grey);
   color: var(--warm-white);
+}
+@media(max-width: 918px){
+  .content {
+  width: 70%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 100px;
+  z-index: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+}
+.section {
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 40px;
+  margin-top: 100px;
+  flex-shrink: 1;
+}
 }
 </style>

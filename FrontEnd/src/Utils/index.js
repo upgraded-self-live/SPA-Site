@@ -1,7 +1,7 @@
 export class cookieUtils {
-  setItemInCookie(name, value, duration = 60000) {
+  setItemInCookie(name, value, duration = 60) {
     const encoddedValue = encodeURIComponent(value)
-    document.cookie = `${name}=${encoddedValue}; path=/; max-age=${duration * 6000}` //a minute in millisecond is 60,000 so we will multiple the duration by the minute eg. 60*60,000 = 1 hour
+    document.cookie = `${name}=${encoddedValue}; path=/; max-age=${duration}` //Cookies are set in seconds 
     return true
   }
   getFromCookie(name) {

@@ -46,6 +46,9 @@ function grabCurrentChoice(el) {
         <li class="page-marker" data-active="true"></li>
         <li class="page-marker"></li>
         <li class="page-marker"></li>
+        <li class="page-marker"></li>
+        <li class="page-marker"></li>
+        <li class="page-marker"></li>
       </ul>
     </div>
     <div id="content">
@@ -71,7 +74,7 @@ function grabCurrentChoice(el) {
       </div>
       <RouterLink to="/" class="CTA-button-container"
         ><button class="call-to-action-button" style="border-radius: 10px">
-          Next Question: Your Budget ➡
+          Next Question: Your Skin Concerns➡
         </button></RouterLink
       >
     </div>

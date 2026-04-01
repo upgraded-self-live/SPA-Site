@@ -80,21 +80,21 @@ const numOfQuestions = ref(3)
           >
           <div class="card-flex-g-20">
             <NoticeDynamic
-              title="Evidence First"
+              title="Evidence First 🧾"
               content="Every product recommendation is backed by peer-reviewed dermatology research, not brand deals."
               backgroundcolor="var(--white)"
               titlecolor="var(--charcoal)"
               infocolor="var(--mid-grey)"
             />
             <NoticeDynamic
-              title="Less is More"
+              title="Less is More🔬"
               content="We recommend fewer, better products. No 12-step overload. Just what your skin actually needs."
               backgroundcolor="var(--white)"
               titlecolor="var(--charcoal)"
               infocolor="var(--mid-grey)"
             />
             <NoticeDynamic
-              title="Radical Transparency"
+              title="Radical Transparency🔍"
               content="We tell you exactly why each product is in your routine — ingredient by ingredient."
               backgroundcolor="var(--white)"
               titlecolor="var(--charcoal)"
@@ -185,7 +185,7 @@ main {
   gap: 30px;
   align-items: flex-start;
   position: relative;
-  top: 10%;
+  top: 20%;
   left: 0;
 }
 .info-text {

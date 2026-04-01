@@ -80,7 +80,7 @@ def startup_event():
 def send_email(xy: sendEmailSchema ,background_task: BackgroundTasks, ):
     print(xy)
     global e_server
-    background_task.add_task(Send_Email, e_server, 'upgraded.self.live@gmail.com', f"{xy.name} has a question.", f"<p> Name: </p> {xy.name}<p>Email: </p> {xy.email}<p>Message: </p>{xy.message}")
+    background_task.add_task(Send_Email, e_server, 'support@ugrd.live', f"{xy.name} has an issue.", f"<p> Name: </p> {xy.name}<p>Email: </p> {xy.email}<p>Message: </p>{xy.message}")
     return xy
 
 @app.put('/email/str')

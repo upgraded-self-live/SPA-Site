@@ -11,7 +11,7 @@ import sideBarIcon from '@/components/Icons/icons8-sidebar-96.webp'
 //Make the nav button a global variable
 const flexMode = ref('row')
 const isMobile = ref(false) //reactive element if it is a mobile screen
-const navButtonRef = ref('NOT_ASSIGNED')
+let navButtonRef = ref('NOT_ASSIGNED')
 const navigation = ref()
 function showNav() {
   //Change navigation display to flex
@@ -27,6 +27,14 @@ onMounted(() => {
         if (!navigation.value?.classList.contains('none')) {
           if (!navButtonRef.value?.classList.contains('nav-open-react')) {
             navButtonRef.value?.classList.add('nav-open-react')
+            if (navButtonRef.value === 'NOT_ASSIGNED' || !navButtonRef) {
+              try {
+                navButtonRef.value = document.querySelector('#mobile-nav-button')
+              } catch (e) {
+                console.warn(`${e} running alternative`)
+                navButtonRef = document.querySelector('#mobile-nav-button')
+              }
+            }
           }
         } else {
           navButtonRef.value?.classList.remove('nav-open-react') //This causes a 'null error' for some reason

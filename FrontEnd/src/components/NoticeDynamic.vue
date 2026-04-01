@@ -29,7 +29,7 @@ const Props = defineProps(['title', 'content', 'backgroundcolor', 'titlecolor', 
   font-size: 1.2rem;
   font-family: 'Playfair Display', sans-serif;
   color: v-bind(titlecolor);
-  font-weight: 500;
+  font-weight: 600;
 }
 .notice-info {
   color: v-bind(infocolor);
