@@ -27,6 +27,12 @@ const router = createRouter({
       component: () => import('@/views/Support.vue'),
       meta: { title: 'Support | UpgradedSelf.live' },
     },
+    {
+      path: '/quiz',
+      name: 'quiz',
+      component: () => import('@/views/Quiz.vue'),
+      meta: { title: 'Find Your Routine' },
+    },
   ],
 })
 router.beforeEach((to) => {

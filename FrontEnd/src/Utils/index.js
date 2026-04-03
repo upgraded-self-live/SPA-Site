@@ -1,7 +1,7 @@
 export class cookieUtils {
   setItemInCookie(name, value, duration = 60) {
     const encoddedValue = encodeURIComponent(value)
-    document.cookie = `${name}=${encoddedValue}; path=/; max-age=${duration}` //Cookies are set in seconds 
+    document.cookie = `${name}=${encoddedValue}; path=/; max-age=${duration}` //Cookies are set in seconds
     return true
   }
   getFromCookie(name) {
@@ -9,7 +9,8 @@ export class cookieUtils {
     for (let cookie of cookies) {
       const [cookieName, cookieValue] = cookie.trim().split('=')
       if (cookieName === name) {
-        return decodeURIComponent(cookieValue) //remove all automatic query types ":" = "$" or smth else idk; if there is any
+        return JSON.parse(decodeURIComponent(cookieValue)) //remove all automatic query types ":" = "$" or smth else idk; if there is any
+        console.log(cookieValue)
       }
     }
     return null
@@ -90,15 +91,21 @@ export class arrayProperties {
     })
   }
   ifTrue(trueArray) {
-     const objToArray = Object.keys(this.object) //Converts object to array
-     objToArray.forEach((key) => {
-       //loops through the array of keys
-       if (this.object[key]) {
-         //if the object at index of key is undefined
-         this.object[key] = placeHolderObjMap[key] //set the indexed object to the same index in that array
-         //key is a list of indices with their values allocated to it
-         console.log(`${this.object[key]}:${placeHolderObjMap[key]}`)
-       }
-     })
+    const objToArray = Object.keys(this.object) //Converts object to array
+    objToArray.forEach((key) => {
+      //loops through the array of keys
+      if (this.object[key]) {
+        //if the object at index of key is undefined
+        this.object[key] = placeHolderObjMap[key] //set the indexed object to the same index in that array
+        //key is a list of indices with their values allocated to it
+        console.log(`${this.object[key]}:${placeHolderObjMap[key]}`)
+      }
+    })
   }
+}
+export function s(value) {
+  return JSON.stringify(value)
+}
+export function p(value) {
+  return JSON.parse(value)
 }

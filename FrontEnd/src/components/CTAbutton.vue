@@ -2,7 +2,7 @@
 <script setup></script>
 
 <template>
-  <RouterLink to="/">
+  <RouterLink to="/quiz">
     <button class="call-to-action-button">BUILD YOUR ROUTINE</button>
   </RouterLink>
 </template>

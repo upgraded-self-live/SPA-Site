@@ -23,7 +23,7 @@ function grabCurrentChoice(el) {
     if (el.classList.contains('active-choice')) {
       const attrValue = el.getAttribute('data-choice')
       const ugrd_session = {
-        quizProgress: '1',
+        quizProgress: 2,
         data: {
           skinType: attrValue,
         },
@@ -72,7 +72,7 @@ function grabCurrentChoice(el) {
           ><span class="secondary-button-info">Balanced & Calm</span>
         </button>
       </div>
-      <RouterLink to="/" class="CTA-button-container"
+      <RouterLink to="/quiz" class="CTA-button-container"
         ><button class="call-to-action-button" style="border-radius: 10px">
           Next Question: Your Skin Concerns➡
         </button></RouterLink
