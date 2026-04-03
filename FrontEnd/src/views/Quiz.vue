@@ -1,66 +1,38 @@
 <!--Copy this boilerplate for easy component building-->
 <script setup>
 /*
-            --Level Configuration--         
+            --Level Configuration--
 This script will manage the quiz questions utilizing vue dynamic rendering and conditional program control
 Steps:
 1.I will make a global reactive element called question number
 2.Use v-if to check question number and map to its div element for .e.x. <div v-if="questionNum ==2 ">**Questions to render**<!div>
 3. I will create a multi selection element:
-3.1. When the user clicks on one of the choices the "chosen" class is toggled to it 
+3.1. When the user clicks on one of the choices the "chosen" class is toggled to it
 3.2. When the user clicks next question, the elements with the "chosen" class have their attributes scanned and stored in a cookie called "ugrd_session"
 4. I will add a question tracker component allowing user to know what question number they are on using the ugrd_session cookie.
 Question number will be stored in the ugrd_session cookie
 This documentation is subject to change.*/
 import { ref } from 'vue'
-import { cookieUtils, s, p } from '@/Utils'
-import STextLine from '@/components/STextLine.vue'
+import { onUpdate, cookieUtils } from '@/Utils'
 import QuestionTracker from '@/components/QuestionTracker.vue'
 import QuestionCounter from '@/components/QuestionCounter.vue'
+/*---Imports of questions---*/
+import Question1 from '@/components/Question1.vue'
+import Question2 from '@/components/Question2.vue'
+
 const questionNum = ref(1)
-const cookies = new cookieUtils()
-let ugrdSessionOG = cookies.getFromCookie('ugrd_session')
 const footerEl = ref()
-const ChoicesContainer = ref()
-//Update the global session cookie variable, Repetition solution
-function updateGlobalugrdSessionCookie() {
-  ugrdSessionOG = cookies.getFromCookie('ugrd_session')
-}
-//1 Hour for setting cookie
-const hour = 60 * 60
-//Check if the global ugrd_session cookie exist, if not create it.
-if (!ugrdSessionOG) {
-  const ugrd_session = {
-    quizProgress: 1,
-    data: {},
+const cookies = new cookieUtils()
+const getCurrentQuestionNum = () => {
+  const ugrd_session = cookies.getFromCookie('ugrd_session')
+  if (!ugrd_session) {
+    return 1
   }
-  const savableVersion = s(ugrd_session)
-  console.log(savableVersion)
-  cookies.setItemInCookie('ugrd_session', savableVersion, hour)
-  updateGlobalugrdSessionCookie()
+  return ugrd_session.quizProgress
 }
-if (ugrdSessionOG && ugrdSessionOG['quizProgress'] > 1) {
-  questionNum.value = ugrdSessionOG['quizProgress']
-}
-function prevQuestion() {
-  if (questionNum.value > 1) {
-    questionNum.value = questionNum.value - 1
-    const quizsetter = Object.assign(ugrdSessionOG, { quizProgress: questionNum.value })
-    console.log(quizsetter)
-    cookies.setItemInCookie('ugrd_session', s(quizsetter), hour)
-    updateGlobalugrdSessionCookie()
-  }
-}
-function nextQuestion() {
-  if (questionNum.value < 6) {
-    questionNum.value = questionNum.value + 1
-    //function to grab values of elements and return an object
-    const quizsetter = Object.assign(ugrdSessionOG, { quizProgress: questionNum.value })
-    console.log(quizsetter)
-    cookies.setItemInCookie('ugrd_session', s(quizsetter), hour) //Must stringify before saving
-    updateGlobalugrdSessionCookie()
-  }
-}
+onUpdate(() => {
+  questionNum.value = getCurrentQuestionNum()
+}, 100)
 </script>
 
 <template>
@@ -70,35 +42,14 @@ function nextQuestion() {
     <RouterLink to="/">SAVE & EXIT</RouterLink>
   </header>
 
-  <div id="Main-container" data-question-mapper="1" v-if="questionNum === 1">
-    <div id="Main-content">
-      <STextLine text="STEP 1 SKIN TYPE" />
-      <div id="question-container">
-        <span class="h3"
-          >How does your skin feel by <span class="italic c-terracotta">midday</span></span
-        >
-        <span class="info-text">Think about an average day, not after exercise or stress.</span>
-      </div>
-      <div :ref="ChoicesContainer" id="ChoicesContainer"></div>
-      <div class="button-container">
-        <button @click="nextQuestion">Next Step ⏭️</button>
-      </div>
-    </div>
+  <div class="Main-container" data-question-mapper="1" v-if="questionNum === 1" id="Skin-type">
+    <Question1 />
   </div>
 
-  <div id="Main-container" data-question-mapper="2" v-if="questionNum === 2">
-    <div id="Main-content">
-      <h1>Main-Concerns</h1>
-      <div class="max-width-flex-row-space-between">
-        <span>{{ questionNum }} of 6 questions</span>
-        <div class="button-container">
-          <button @click="prevQuestion">back</button>
-          <button @click="nextQuestion">Next</button>
-        </div>
-      </div>
-    </div>
+  <div class="Main-container" data-question-mapper="2" v-if="questionNum === 2">
+    <Question2 />
   </div>
-  <footer :ref="footerEl"><!--Style this for quiz progress--></footer>
+  <footer ref="footerEl"><!--Style this for quiz progress--></footer>
   <QuestionCounter />
 </template>
 
@@ -119,6 +70,9 @@ header {
   width: 100%;
   border-bottom: 1px solid var(--light-grey);
   padding: 30px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 a {
   color: var(--light-grey);
@@ -127,23 +81,16 @@ a {
 a:hover {
   color: var(--mid-grey);
 }
-#Main-container {
+.Main-container {
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-shrink: 2;
 }
-#Main-content {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  align-items: flex-start;
-  padding: 30px;
-}
+
 .info-text {
   font-family: 'DM Sans', sans-serif;
   color: var(--mid-grey);
@@ -168,7 +115,11 @@ a:hover {
 button {
   min-width: 150px;
   height: 40px;
-  border-radius: 5px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
 }
 </style>

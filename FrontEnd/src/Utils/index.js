@@ -103,9 +103,48 @@ export class arrayProperties {
     })
   }
 }
+export class accessSessionStorage {
+  get(key) {
+    return window.sessionStorage.getItem(key)
+  }
+  set(key, value) {
+    window.sessionStorage.setItem(key, value)
+  }
+}
+
 export function s(value) {
   return JSON.stringify(value)
 }
 export function p(value) {
   return JSON.parse(value)
+}
+export function toggleActive(e, container) {
+  if (
+    e.target?.classList.contains('choice') &&
+    container.getAttribute('data-allowed') === 'single'
+  ) {
+    const allChoices = container.querySelectorAll('.choice')
+    allChoices.forEach((el) => {
+      el.classList.remove('active')
+    })
+    e.target.classList.toggle('active')
+    return
+  }
+
+  let currentElement = e.target
+  const interval = setInterval(() => {
+    if (!currentElement.classList.contains('choice')) {
+      currentElement = currentElement.parentElement
+    } else if (currentElement.classList.contains('choice')) {
+      if (container.getAttribute('data-allowed') === 'single') {
+        const allChoices = container.querySelectorAll('.choice')
+        allChoices.forEach((el) => {
+          el.classList.remove('active')
+        })
+      }
+      currentElement.classList.toggle('active')
+      clearInterval(interval)
+      return
+    }
+  }, 100) //Activate the toggle class if the choice element or any of its children have been clicked.
 }

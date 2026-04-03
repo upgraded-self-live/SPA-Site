@@ -1,8 +1,8 @@
 <!--Copy this boilerplate for easy component building-->
 <script setup>
-import { cookieUtils } from '@/Utils'
+import { cookieUtils, accessSessionStorage } from '@/Utils'
 const c = new cookieUtils()
-
+const s = new accessSessionStorage()
 function updateCurrentChoiceAndStyles(event /* this grabs the element that invoked the event */) {
   //This function will update the styles and classes of each element in the #choices element
   const elArray = document.querySelectorAll('.choice')
@@ -30,6 +30,22 @@ function grabCurrentChoice(el) {
       }
       const savable_version = JSON.stringify(ugrd_session)
       c.setItemInCookie('ugrd_session', savable_version, 60) // this cookie will be used to track the quiz progress and make sure that the user is on the right question when they go back to the quiz after leaving it for a while
+      switch (attrValue) {
+        case 'Dry':
+          s.set(1, '🌵DryTight or Flaky')
+          break
+        case 'oily':
+          s.set(1, '🛢️OilyShiny all over')
+          break
+        case 'Combination':
+          s.set(1, '⚡CombinationOily T-zone, dry face cheeks')
+          break
+        case 'Normal':
+          s.set('🌿NormalBalanced and comfortable')
+          break
+      }
+
+      return
     }
   } catch (e) {
     throw new Error(e)

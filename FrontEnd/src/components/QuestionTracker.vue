@@ -206,14 +206,14 @@ onUpdate(() => {
       <line x1="0" y1="5" :x2="30" y2="5" stroke="currentColor" stroke-width="1" />
     </svg>
     <div class="circle-container done">
-      <span class="c-whitey">4</span>
+      <span class="c-white">4</span>
     </div>
 
     <svg height="10" :width="30" viewBox="0 0 30 10" :style="{ color: 'var(--light-grey)' }">
       <line x1="0" y1="5" :x2="30" y2="5" stroke="currentColor" stroke-width="1" />
     </svg>
     <div class="circle-container active">
-      <span class="c-whitey">5</span>
+      <span class="c-white">5</span>
     </div>
 
     <svg height="10" :width="30" viewBox="0 0 30 10" :style="{ color: 'var(--light-grey)' }">
@@ -225,42 +225,42 @@ onUpdate(() => {
   </div>
   <!--Sixth marker-->
   <div class="container" v-if="questionNumber == 6">
-    <div class="circle-container active">
+    <div class="circle-container done">
       <span class="c-white">1</span>
     </div>
-    <svg height="10" :width="30" viewBox="0 0 30 10" :style="{ color: 'var(--light-grey)' }">
+    <svg height="10" :width="30" viewBox="0 0 30 10" :style="{ color: doneColor }">
       <line x1="0" y1="5" :x2="30" y2="5" stroke="currentColor" stroke-width="1" />
     </svg>
-    <div class="circle-container">
-      <span class="c-light-grey">2</span>
+    <div class="circle-container down">
+      <span class="c-white">2</span>
+    </div>
+
+    <svg height="10" :width="30" viewBox="0 0 30 10" :style="{ color: doneColor }">
+      <line x1="0" y1="5" :x2="30" y2="5" stroke="currentColor" stroke-width="1" />
+    </svg>
+    <div class="circle-container done">
+      <span class="c-white">3</span>
+    </div>
+
+    <svg height="10" :width="30" viewBox="0 0 30 10" :style="{ color: doneColor }">
+      <line x1="0" y1="5" :x2="30" y2="5" stroke="currentColor" stroke-width="1" />
+    </svg>
+    <div class="circle-container done">
+      <span class="c-white">4</span>
+    </div>
+
+    <svg height="10" :width="30" viewBox="0 0 30 10" :style="{ color: doneColor }">
+      <line x1="0" y1="5" :x2="30" y2="5" stroke="currentColor" stroke-width="1" />
+    </svg>
+    <div class="circle-container done">
+      <span class="c-white">5</span>
     </div>
 
     <svg height="10" :width="30" viewBox="0 0 30 10" :style="{ color: 'var(--light-grey)' }">
       <line x1="0" y1="5" :x2="30" y2="5" stroke="currentColor" stroke-width="1" />
     </svg>
-    <div class="circle-container">
-      <span class="c-light-grey">3</span>
-    </div>
-
-    <svg height="10" :width="30" viewBox="0 0 30 10" :style="{ color: 'var(--light-grey)' }">
-      <line x1="0" y1="5" :x2="30" y2="5" stroke="currentColor" stroke-width="1" />
-    </svg>
-    <div class="circle-container">
-      <span class="c-light-grey">4</span>
-    </div>
-
-    <svg height="10" :width="30" viewBox="0 0 30 10" :style="{ color: 'var(--light-grey)' }">
-      <line x1="0" y1="5" :x2="30" y2="5" stroke="currentColor" stroke-width="1" />
-    </svg>
-    <div class="circle-container">
-      <span class="c-light-grey">5</span>
-    </div>
-
-    <svg height="10" :width="30" viewBox="0 0 30 10" :style="{ color: 'var(--light-grey)' }">
-      <line x1="0" y1="5" :x2="30" y2="5" stroke="currentColor" stroke-width="1" />
-    </svg>
-    <div class="circle-container">
-      <span class="c-light-grey">6</span>
+    <div class="circle-container active">
+      <span class="c-white">6</span>
     </div>
   </div>
   <!--End of Markers-->
