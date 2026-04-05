@@ -19,7 +19,10 @@ import QuestionCounter from '@/components/QuestionCounter.vue'
 /*---Imports of questions---*/
 import Question1 from '@/components/Question1.vue'
 import Question2 from '@/components/Question2.vue'
-
+import Question3 from '@/components/Question3.vue'
+import Question4 from '@/components/Question4.vue'
+import Question5 from '@/components/Question5.vue'
+import Question6 from '@/components/Question6.vue'
 const questionNum = ref(1)
 const footerEl = ref()
 const cookies = new cookieUtils()
@@ -48,6 +51,18 @@ onUpdate(() => {
 
   <div class="Main-container" data-question-mapper="2" v-if="questionNum === 2">
     <Question2 />
+  </div>
+  <div class="Main-container" data-question-mapper="3" v-if="questionNum === 3">
+    <Question3 />
+  </div>
+  <div class="Main-container" data-question-mapper="4" v-if="questionNum === 4">
+    <Question4 />
+  </div>
+  <div class="Main-container" data-question-mapper="5" v-if="questionNum === 5">
+    <Question5 />
+  </div>
+  <div class="Main-container" data-question-mapper="6" v-if="questionNum === 6">
+    <Question6 />
   </div>
   <footer ref="footerEl"><!--Style this for quiz progress--></footer>
   <QuestionCounter />

@@ -1,6 +1,7 @@
 <!--Copy this boilerplate for easy component building-->
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { cookieUtils, s, p, onUpdate, toggleActive, accessSessionStorage } from '@/Utils'
 import STextLine from '@/components/STextLine.vue'
 const cookies = new cookieUtils()
@@ -9,6 +10,7 @@ const questionNum = ugrdSessionGlobal?.quizProgress || 1
 const footerEl = ref()
 const ChoicesContainer = ref()
 const errorElVal = ref()
+const router = useRouter()
 onMounted(() => {
   getUserChoicesFromSessionStorage()
 })
@@ -98,14 +100,14 @@ function prevQuestion() {
     console.error(e)
   }
 }
-function nextQuestion() {
+function nextQuestion(none = false) {
   try {
     SaveUserChoiceInSessionStorage()
     const questionAnswers = fetchActiveChoicesFromQuestions() //Fetch all question answers
     if (!questionAnswers) {
       return
     }
-    const newIdx = questionNum + 1
+    let newIdx = none ? questionNum : questionNum + 1
     ugrdSessionGlobal = Object.assign(ugrdSessionGlobal, { quizProgress: newIdx })
     const scopedSession = {
       ...ugrdSessionGlobal,
@@ -114,6 +116,9 @@ function nextQuestion() {
     ugrdSessionGlobal = scopedSession
     console.log(ugrdSessionGlobal)
     cookies.setItemInCookie('ugrd_session', s(ugrdSessionGlobal), hour)
+    if (none) {
+      router.push('/')
+    }
   } catch (e) {
     console.warn(e)
   }
@@ -122,53 +127,56 @@ function nextQuestion() {
 
 <template>
   <div class="Main-content">
-    <STextLine text="STEP 2 - PRIMARY CONCERNS" />
+    <STextLine text="STEP 4 - SKINCARE EXPERIENCE" />
     <div id="question-container">
       <span class="h3"
-        >What bothers your skin the most <span class="italic c-terracotta">most?</span></span
+        >How familiar are you with <span class="italic c-terracotta">skincare?</span></span
       >
-      <span class="info-text"
-        >Focus on your biggest concern — we'll build everything around it.</span
-      >
+      <span class="info-text">This shapes how technical our product recommendations get.</span>
     </div>
-    <div ref="ChoicesContainer" id="skinConcerns" class="card-container-flex" data-allowed="single">
+    <div ref="ChoicesContainer" id="exp" class="card-container-flex" data-allowed="single">
       <!--Container starts-->
-      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="acne">
-        <span class="h2 emoji">🔴</span>
+      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="beginner">
+        <!--This system is measured from 1 to 4 with one being the best and 4 being the worse-->
+        <span class="h2 emoji">🌱</span>
         <div class="text-container-flex-column">
-          <span class="main-text">Acne</span>
-          <span class="info-text">Breakouts & blackheads</span>
+          <span class="main-text">Beginner</span>
+          <span class="info-text">Start from scratch</span>
         </div>
       </div>
 
-      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="dark_spots">
-        <span class="h2 emoji">🌑</span>
+      <div
+        class="choice"
+        @click="toggleActive($event, ChoicesContainer)"
+        data-value="some knowledge"
+      >
+        <span class="h2 emoji">📖</span>
         <div class="text-container-flex-column">
-          <span class="main-text">Dark Spots</span>
-          <span class="info-text">Hyperpigmentation</span>
+          <span class="main-text">Some knowledge</span>
+          <span class="info-text">You know the basics</span>
         </div>
       </div>
 
-      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="wrinkles">
-        <span class="h2 emoji">👴</span>
+      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="intermediate">
+        <span class="h2 emoji">🔬</span>
         <div class="text-container-flex-column">
-          <span class="main-text">Wrinkles</span>
-          <span class="info-text">Fine lines & wrinkles</span>
+          <span class="main-text">Intermediate</span>
+          <span class="info-text">Knows actives</span>
         </div>
       </div>
 
-      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="redness">
-        <span class="h2 emoji">🍒</span>
+      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="advanced">
+        <span class="h2 emoji">🎓</span>
         <div class="text-container-flex-column">
-          <span class="main-text">Redness</span>
-          <span class="info-text">Irritation & flushing</span>
+          <span class="main-text">Advanced</span>
+          <span class="info-text">Read ingredient list</span>
         </div>
       </div>
       <!--Container ends -->
     </div>
     <div class="button-container">
       <button @click="prevQuestion" id="prevButton">Back</button>
-      <button @click="nextQuestion" id="nextButton">Next Step ⏭</button>
+      <button @click="nextQuestion(true)" id="nextButton">Build my routine</button>
     </div>
   </div>
   <div class="error-container" v-if="errorElVal">
@@ -312,5 +320,8 @@ button {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+}
+a {
+  text-decoration: none;
 }
 </style>

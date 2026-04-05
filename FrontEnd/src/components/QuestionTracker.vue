@@ -145,7 +145,7 @@ onUpdate(() => {
   </div>
   <!--Fourth marker-->
   <div class="container" v-if="questionNumber == 4">
-    <div class="circle-container">
+    <div class="circle-container done">
       <span class="c-white">1</span>
     </div>
     <svg height="10" :width="30" viewBox="0 0 30 10" :style="{ color: doneColor }">
@@ -231,7 +231,7 @@ onUpdate(() => {
     <svg height="10" :width="30" viewBox="0 0 30 10" :style="{ color: doneColor }">
       <line x1="0" y1="5" :x2="30" y2="5" stroke="currentColor" stroke-width="1" />
     </svg>
-    <div class="circle-container down">
+    <div class="circle-container done">
       <span class="c-white">2</span>
     </div>
 

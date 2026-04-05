@@ -278,6 +278,9 @@ button {
   transform: translateY(-10px);
   box-shadow: 0 5px 20px 0 var(--light-grey);
 }
+.choice:hover > .emoji {
+  transform: scale(1.19) translateY(-5px) !important;
+}
 .choice:active {
   transform: scale(0.9999999);
   background-color: var(--terracotta-light);

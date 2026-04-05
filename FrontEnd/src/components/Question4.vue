@@ -122,46 +122,43 @@ function nextQuestion() {
 
 <template>
   <div class="Main-content">
-    <STextLine text="STEP 2 - PRIMARY CONCERNS" />
+    <STextLine text="STEP 4 - SKIN SENSITIVITY" />
     <div id="question-container">
-      <span class="h3"
-        >What bothers your skin the most <span class="italic c-terracotta">most?</span></span
-      >
-      <span class="info-text"
-        >Focus on your biggest concern — we'll build everything around it.</span
-      >
+      <span class="h3">How reactive is your <span class="italic c-terracotta">skin?</span></span>
+      <span class="info-text">This helps us know which active ingredients are safe for you.</span>
     </div>
-    <div ref="ChoicesContainer" id="skinConcerns" class="card-container-flex" data-allowed="single">
+    <div ref="ChoicesContainer" id="skinSensitivity" class="card-container-flex" data-allowed="single">
       <!--Container starts-->
-      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="acne">
-        <span class="h2 emoji">🔴</span>
+      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="1">
+        <!--This system is measured from 1 to 4 with one being the best and 4 being the worse-->
+        <span class="h2 emoji">🛡️</span>
         <div class="text-container-flex-column">
-          <span class="main-text">Acne</span>
-          <span class="info-text">Breakouts & blackheads</span>
+          <span class="main-text">Very resilient</span>
+          <span class="info-text">Barely reacts</span>
         </div>
       </div>
 
-      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="dark_spots">
-        <span class="h2 emoji">🌑</span>
+      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="2">
+        <span class="h2 emoji">⚠️</span>
         <div class="text-container-flex-column">
-          <span class="main-text">Dark Spots</span>
-          <span class="info-text">Hyperpigmentation</span>
+          <span class="main-text">Midly reactive</span>
+          <span class="info-text">Sometimes reacts</span>
         </div>
       </div>
 
-      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="wrinkles">
-        <span class="h2 emoji">👴</span>
+      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="3">
+        <span class="h2 emoji">💀</span>
         <div class="text-container-flex-column">
-          <span class="main-text">Wrinkles</span>
-          <span class="info-text">Fine lines & wrinkles</span>
+          <span class="main-text">Very reactive</span>
+          <span class="info-text">Reacts often</span>
         </div>
       </div>
 
-      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="redness">
-        <span class="h2 emoji">🍒</span>
+      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="2">
+        <span class="h2 emoji">❓</span>
         <div class="text-container-flex-column">
-          <span class="main-text">Redness</span>
-          <span class="info-text">Irritation & flushing</span>
+          <span class="main-text">Not sure</span>
+          <span class="info-text">Have'nt tracked it</span>
         </div>
       </div>
       <!--Container ends -->
