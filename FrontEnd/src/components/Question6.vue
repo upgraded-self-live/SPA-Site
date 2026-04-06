@@ -117,7 +117,7 @@ function nextQuestion(none = false) {
     console.log(ugrdSessionGlobal)
     cookies.setItemInCookie('ugrd_session', s(ugrdSessionGlobal), hour)
     if (none) {
-      router.push('/')
+      router.push('/routine-builder')
     }
   } catch (e) {
     console.warn(e)

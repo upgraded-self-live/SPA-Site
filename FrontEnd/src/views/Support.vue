@@ -46,7 +46,7 @@ async function submitEmailForm() {
       <div class="left-section-wrapper">
         <STextLine text="WE ARE HERE FOR YOU" />
         <span class="h1 c-black">
-          What do you need <span class="italic c-terracotta">help</span> with.</span
+          What do you need <span class="italic c-terracotta">help</span> with?</span
         >
         <span class="info-text"
           >Send us a quick email of your problem and we will get back right with you.</span

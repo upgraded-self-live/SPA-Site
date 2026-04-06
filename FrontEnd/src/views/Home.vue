@@ -128,7 +128,7 @@ onMounted(() => {
       <!--Links to privacy Policy, NewsLetter, About and Support-->
       <ul id="footer-links-container">
         <li><RouterLink to="/cookie-policy">Cookie Policy</RouterLink></li>
-        <li><RouterLink to="/">Email Reminder</RouterLink></li>
+        <li><RouterLink to="/email-subscription">Email Reminder</RouterLink></li>
         <li><RouterLink to="/about">About</RouterLink></li>
         <li><RouterLink to="/support">Support</RouterLink></li>
       </ul>

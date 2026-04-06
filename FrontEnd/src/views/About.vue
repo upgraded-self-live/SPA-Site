@@ -68,7 +68,7 @@ const numOfQuestions = ref(3)
     <section id="our-mission-section">
       <section class="left-section p-top-120 flex-start-al flex-start-just">
         <div id="our-mission-content-wrapper" class="flex-start-al flex-start-just">
-          <STextLine text="OUR STORY" />
+          <STextLine text="OUR MISSION" />
           <span class="h2">Why We Built <span class="c-terracotta italic">This</span></span>
           <span class="info-text"
             >The skincare industry has a clarity problem. Shelves are packed with products making
@@ -123,7 +123,7 @@ const numOfQuestions = ref(3)
       skin — no guesswork, no overwhelm.</span
     >
     <div class="button-container">
-      <RouterLink to="/"><button class="main-CTA-button">BUILD MY ROUTINE</button></RouterLink>
+      <RouterLink to="/quiz"><button class="main-CTA-button">BUILD MY ROUTINE</button></RouterLink>
       <RouterLink to="/support"><button class="secondary-button">SUPPORT</button></RouterLink>
     </div>
   </footer>
@@ -333,5 +333,8 @@ button {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+button {
+  cursor: pointer;
 }
 </style>

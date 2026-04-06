@@ -82,8 +82,7 @@ const websiteName = ref('ugrd.live')
       <div class="section-header">
         <STextLine text="SECTION 03" class="show-up" id="section-03" />
         <span class="h1"
-          >Types Of <span class="color-terracotta h1 show-up">Cookies</span>
-         We Use</span
+          >Types Of <span class="color-terracotta h1 show-up">Cookies</span> We Use</span
         >
       </div>
       <div class="section-content">
@@ -126,13 +125,14 @@ const websiteName = ref('ugrd.live')
         </div>
         <div class="contact-content">
           <span class="contact-text"
-            >If you have any questions please don't hesitate to contact us, we typically answer
-            within a day.
+            >If you have any questions please don't hesitate to contact us at support@ugrd.live or
+            for business inquires contact us at business@ugrd.live, we typically answer within a
+            day.
           </span>
         </div>
         <div class="button-container-row">
-          <RouterLink to="/"><button class="primary-button">CONTACT US</button></RouterLink>
-          <RouterLink to="/"
+          <RouterLink to="/support"><button class="primary-button">CONTACT US</button></RouterLink>
+          <RouterLink to="/quiz"
             ><button class="secondary-button">BUILD YOUR ROUTINE</button></RouterLink
           >
         </div>
@@ -320,27 +320,27 @@ button {
   background-color: var(--mid-grey);
   color: var(--warm-white);
 }
-@media(max-width: 918px){
+@media (max-width: 918px) {
   .content {
-  width: 70%;
-  height: 100%;
-  position: fixed;
-  right: 0;
-  top: 100px;
-  z-index: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 20px;
-}
-.section {
-  width: 100%;
-  min-height: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  gap: 40px;
-  margin-top: 100px;
-  flex-shrink: 1;
-}
+    width: 70%;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 100px;
+    z-index: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+  }
+  .section {
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 40px;
+    margin-top: 100px;
+    flex-shrink: 1;
+  }
 }
 </style>
