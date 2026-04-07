@@ -18,6 +18,13 @@ class sendEmailSchema(SQLModel):
 class saveNewsletterSchema(SQLModel):
     email: str = Field(min_length=10, max_length=100)
     
+class build_Schema(SQLModel): 
+    budget: str
+    exp: str
+    skinConcerns: str
+    skinSensitivity: str
+    skinType: str
+    time: str
 
 def check_if_email_exists(email: str) -> bool:
     """Check if an email already exists in the Email-List collection"""

@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi. staticfiles import StaticFiles
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from SchemeModels import sendEmailSchema, saveNewsletterSchema, set_email_to_coll
+from SchemeModels import sendEmailSchema, saveNewsletterSchema, set_email_to_coll, build_Schema
 import smtplib
 import os
 from dotenv import load_dotenv
@@ -93,7 +93,12 @@ def Store_Email(xy: saveNewsletterSchema, background_task: BackgroundTasks):
     background_task.add_task(Send_Email, e_server, r.get('data')['email'], "Thank You for Joining",f"<h1 style='color: pink;'>Thank You for Joining Our Newsletter</h1> <p>We will remind you every month of your skincare routine. Don't worry you don't need to answer all the questions again unless you do not purchase the items again after viewing this email.</p> <p>Gotten the results you want? unsubscribe to monthly emails here - </p> <a href='#' target='_blank'>Bye bye 👋</a>")
     return r
 
-
+@app.post('/build')
+def build_routine(skin_data:build_Schema = False)-> dict:
+    if not skin_data:
+         raise HTTPException(status_code=500, detail='Invalid body')
+    print(skin_data)
+    return {'data': {}}
 app.mount('/assets', StaticFiles(directory='./FrontEnd/dist/assets'), name='assets')
 app.mount('/', StaticFiles(directory='./FrontEnd/dist'), name="root")
 
