@@ -125,7 +125,7 @@ function nextQuestion() {
     <STextLine text="STEP 2 - PRIMARY CONCERNS" />
     <div id="question-container">
       <span class="h3"
-        >What bothers your skin the most <span class="italic c-terracotta">most?</span></span
+        >What bothers your skin the <span class="italic c-terracotta">most?</span></span
       >
       <span class="info-text"
         >Focus on your biggest concern — we'll build everything around it.</span

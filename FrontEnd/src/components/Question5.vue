@@ -129,7 +129,7 @@ function nextQuestion() {
     </div>
     <div ref="ChoicesContainer" id="budget" class="card-container-flex" data-allowed="single">
       <!--Container starts-->
-      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="10_20">
+      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="5_20">
         <!--This system is measured from 1 to 4 with one being the best and 4 being the worse-->
         <span class="h2 emoji">💲</span>
         <div class="text-container-flex-column">

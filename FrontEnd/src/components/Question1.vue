@@ -135,7 +135,7 @@ function nextQuestion() {
     </div>
     <div ref="ChoicesContainer" id="skinType" class="card-container-flex" data-allowed="single">
       <!--Container starts-->
-      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="Oily">
+      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="oily">
         <span class="h2 emoji">🛢️</span>
         <div class="text-container-flex-column">
           <span class="main-text">Oily</span>
@@ -143,7 +143,7 @@ function nextQuestion() {
         </div>
       </div>
 
-      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="Dry">
+      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="dry">
         <span class="h2 emoji">🌵</span>
         <div class="text-container-flex-column">
           <span class="main-text">Dry</span>
@@ -151,7 +151,7 @@ function nextQuestion() {
         </div>
       </div>
 
-      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="Combination">
+      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="combination">
         <span class="h2 emoji">⚡</span>
         <div class="text-container-flex-column">
           <span class="main-text">Combination</span>
@@ -159,7 +159,7 @@ function nextQuestion() {
         </div>
       </div>
 
-      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="Normal">
+      <div class="choice" @click="toggleActive($event, ChoicesContainer)" data-value="normal">
         <span class="h2 emoji">🌿</span>
         <div class="text-container-flex-column">
           <span class="main-text">Normal</span>
